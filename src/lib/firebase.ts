@@ -1,7 +1,7 @@
 // src/lib/firebase.ts
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getAnalytics, isSupported } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY!,
@@ -16,11 +16,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
-// Optional: only enable analytics on supported environments
-let analytics: ReturnType<typeof getAnalytics> | null = null;
-isSupported().then((supported) => {
-  if (supported) analytics = getAnalytics(app);
-});
-
-export { auth, provider, analytics };
+export { auth, provider, db};

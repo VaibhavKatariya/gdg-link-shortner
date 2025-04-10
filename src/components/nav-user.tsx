@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/lib/firebase";
+import { ThemeToggle } from "./theme-toggle";
 
 export function NavUser() {
   const { isMobile } = useSidebar();
@@ -56,8 +57,9 @@ export function NavUser() {
             align="end"
             sideOffset={4}
           >
+            <ThemeToggle />
             <DropdownMenuItem
-              className="cursor-pointer bg-zinc-800 text-white"
+              className="cursor-pointer dark:bg-zinc-800 dark:text-white"
               onClick={() => auth.signOut()}
             >
               <LogOut />

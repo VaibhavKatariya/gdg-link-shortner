@@ -37,7 +37,7 @@ export default function HomePage() {
       )}
 
       <p className="mt-10 text-xs text-muted-foreground">
-        Built with ❤️ by GDSC JIIT 128
+        Built with ❤️ by <Link href="https://kaily.in"> Vaibhav Katariya</Link>
       </p>
     </main>
   );
